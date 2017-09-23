@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加用户</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<form action="/index.php/demo/demo1/index" method="post">
+    <table>
+        <tr>
+            <td>用户名称：</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td>用户密码：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td>手机号码：</td>
+            <td><input type="text" name="phone"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="提交">
+            </td>
+        </tr>
+    </table>
+    <div>
+        断言：
+        <input type="radio" name="assert" value="1">1
+        <input type="radio" name="assert" value="2">2
+        <input type="radio" name="assert" value="3">3
+        <input type="radio" name="assert" value="4">4
+    </div>
+</form>
+</body>
+</html>
