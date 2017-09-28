@@ -64,7 +64,7 @@
 	<div id="body">
 		<p> ● 前端开发模拟接口返回数据</p>
 		<p> ● 前端指定接口返回值</p>
-		<code><a href="http://192.168.9.141:8003/index.php/home/handApi">编写文档注释</a></code>
+		<code><a href="/index.php/home/createApi">编写文档注释</a></code>
 
 		<p> ● 接口按照开发文档接收参数</p>
 		<p> ● 接口按照开发文档返回数据</p>

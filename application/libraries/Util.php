@@ -15,6 +15,12 @@ class Util
     public static function errorMsg($msg, $status=0, $state=0)
     {
         $errorMsg = $msg;
-        get_instance()->response(array('status'=>$status, 'error'=>$errorMsg,'state'=>$state), 200);
+        $data = json_encode(array('status'=>$status, 'error'=>$errorMsg,'state'=>$state));//转换成json格式
+        $data=preg_replace("#\\\u([0-9a-f]{4})#ie", "iconv('UCS-2BE', 'UTF-8', pack('H4', '\\1'))", $data);//将unicode编码转为汉字
+        $data = str_ireplace("&amp;","&",$data);//替换&amp实体标签
+        $data = str_ireplace("\\","",$data);//替换反斜杠
+        echo $data;
+        exit();
+        // get_instance()->response(array('status'=>$status, 'error'=>$errorMsg,'state'=>$state), 200);
     }
 }

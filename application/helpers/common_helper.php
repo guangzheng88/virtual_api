@@ -186,3 +186,18 @@ function getResponse($assert = 0)
                 break;
         }
 }
+/**
+ * 递归创建
+ */
+function mkDirs($dir){
+    if(!is_dir($dir)){
+        if(!mkDirs(dirname($dir))){
+            return false;
+        }
+        if(!mkdir($dir,0555)){
+            return false;
+        }
+        chmod($dir,0777);
+    }
+    return true;
+}
