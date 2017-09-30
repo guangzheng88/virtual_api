@@ -33,10 +33,10 @@ class CreateApi extends BLL_Controller
             }
         }
         //接口名称
-        if(empty($this->params['api_url'])) Util::errorMsg('接口地址参数错误');
+        // if(empty($this->params['api_url'])) exit('接口名称参数错误');
         //创建接口目录
         $mkdir = $this->mkDirs($this->params['api_url']);
-        if(!$mkdir) Util::errorMsg('权限不足',2,2);
+        if(!$mkdir) exit('权限不足');
         //拼接内容
         $this->joinContent();
         echo '<textarea style="width:100%;height:600px;">';
@@ -50,10 +50,9 @@ class CreateApi extends BLL_Controller
      */
     private function mkDirs($dir)
     {
-        if(empty($dir)) Util::errorMsg('路径错误');
         //以/拆分成数组
         $controArr = explode('/',$dir);
-        if(!is_array($controArr) || count($controArr) < 3) Util::errorMsg('接口格式必须为：模块/控制器/方法');
+        if($this->params['isFile'] == '1' && (!is_array($controArr) || count($controArr) < 3)) exit('接口路径格式必须为：模块/控制器/方法');
         foreach($controArr as $key=>$val)
         {
             $controArr[$key] = lcfirst($val);
